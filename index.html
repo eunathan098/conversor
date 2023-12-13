@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Conversor - Real/Dólar </title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: url("brasil-eua-min.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #sessao_principal {
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        #container {
+            padding: 30px;
+            text-align: center;
+            width: 400px;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 10px 10px 10px black;
+        }
+        #container h1 {
+            color: rgb(141, 6, 6);
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        #container div {
+            margin-top: 10px;
+        }
+        #container input, #container button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        #botao{
+            font-size: 18px;
+            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            background: rgb(157, 157, 245);
+            border-radius: 10px;
+            border: transparent;
+        }
+        #valor_atual {
+            margin-top: 20px;
+        }
+        h3{
+            font-size: 18px;
+            font-weight: bold;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        #resultado{
+            font-size: 20px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="sessao_principal">
+        <div id="container">
+            <h1>CONVERSOR</h1>
+            <div>
+                <input id="valor_real"  type="number" placeholder="Digite o valor em Real...">
+                <input id="valor_dolar" type="number" placeholder="Digite o valor do Dólar...">
+                <button id="botao" onclick="calculardolar()">CALCULAR</button>
+            </div>
+            <div id="valor_atual">
+                <h3>VALOR CONVERTIDO</h3>
+                <div id="resultado">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+    <script>
+
+function calculardolar() {
+    let valorreal = parseFloat(document.getElementById("valor_real").value);
+    let valordolar = parseFloat(document.getElementById("valor_dolar").value);
+
+    if (!isNaN(valorreal) && !isNaN(valordolar) && valordolar !== 0) {
+        let resultado = valorreal / valordolar;
+        document.getElementById("resultado").innerHTML = resultado.toFixed(2) + " Dólares";
+    } else {
+        document.getElementById("resultado").innerHTML = "Por favor, insira valores válidos.";
+    }
+}
+
+    </script>
+</body>
+</html>
